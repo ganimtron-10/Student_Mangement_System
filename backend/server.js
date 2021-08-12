@@ -16,4 +16,4 @@ const connection = mongoose.connection;
 connection.once('open', () => {console.log("Connected to db.")})
 
 app.listen(8000, () => {
-	console.log("Server running on the port 8000")
+	console.log("Server running on the port 8000")})
