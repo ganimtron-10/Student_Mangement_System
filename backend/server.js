@@ -3,6 +3,9 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
+import studentRoute from "./route/StudentRoute";
+import teacherRoute from "./route/TeacherRoute";
+
 dotenv.config();
 const uri = process.env.DBURI
 
@@ -14,6 +17,9 @@ mongoose.connect(uri,{useNewUrlParser: true, useUnifiedTopology: true});
 
 const connection = mongoose.connection;
 connection.once('open', () => {console.log("Connected to db.")})
+
+app.use('/student',studentRoute)
+app.use('/teacher',teacherRoute)
 
 app.listen(8000, () => {
 	console.log("Server running on the port 8000")})
