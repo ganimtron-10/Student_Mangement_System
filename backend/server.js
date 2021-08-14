@@ -8,18 +8,22 @@ import teacherRoute from "./route/TeacherRoute.js";
 
 dotenv.config();
 const uri = process.env.DBURI
-
-const app = express();
-app.use(cors);
-app.use(express.json());
+const port = 5000
 
 mongoose.connect(uri,{useNewUrlParser: true, useUnifiedTopology: true});
 
 const connection = mongoose.connection;
 connection.once('open', () => {console.log("Connected to db.")})
 
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
 app.use('/student',studentRoute)
 app.use('/teacher',teacherRoute)
+app.use('*', (req,res) => res.status(404).json({error: 'Not Found'}))
 
-app.listen(8000, () => {
-	console.log("Server running on the port 8000")})
+app.listen(port, () => {
+	console.log(`Server running on the port ${port}`)
+})
