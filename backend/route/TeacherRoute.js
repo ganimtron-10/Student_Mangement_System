@@ -1,5 +1,5 @@
 import express from "express";
-import teacherData  from "../models/TeacherDataModel";
+import teacherData  from "../models/TeacherDataModel.js";
 
 const router = express.Router()
 
@@ -30,3 +30,4 @@ router.route('/register').post((req,res) => {
     
 })
 
+export default router
