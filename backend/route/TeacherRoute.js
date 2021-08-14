@@ -1,5 +1,4 @@
 import express from "express";
-import { boolean } from "yargs";
 import teacherData  from "../models/TeacherDataModel";
 
 const router = express.Router()
