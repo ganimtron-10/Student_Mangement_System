@@ -3,8 +3,8 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-import studentRoute from "./route/StudentRoute";
-import teacherRoute from "./route/TeacherRoute";
+import studentRoute from "./route/StudentRoute.js";
+import teacherRoute from "./route/TeacherRoute.js";
 
 dotenv.config();
 const uri = process.env.DBURI
@@ -16,7 +16,7 @@ app.use(express.json());
 mongoose.connect(uri,{useNewUrlParser: true, useUnifiedTopology: true});
 
 const connection = mongoose.connection;
-connection.once('open', () => {console.log("Connected to db.")})
+connection.once('open', () => {console.log("Conneqcted to db.")})
 
 app.use('/student',studentRoute)
 app.use('/teacher',teacherRoute)

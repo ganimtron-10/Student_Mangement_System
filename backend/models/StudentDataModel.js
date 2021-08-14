@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const schema = mongoose.Schema();
+const schema = mongoose.Schema;
 
 const studentSchema = new schema({
     firstName : {
