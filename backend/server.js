@@ -3,8 +3,8 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-import studentRoute from "./route/StudentRoute";
-import teacherRoute from "./route/TeacherRoute";
+import studentRoute from "./route/StudentRoute.js";
+import teacherRoute from "./route/TeacherRoute.js";
 
 dotenv.config();
 const uri = process.env.DBURI

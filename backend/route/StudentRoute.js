@@ -1,5 +1,5 @@
 import express from "express";
-import studentData from "../models/StudentDataModel";
+import studentData from "../models/StudentDataModel.js";
 
 const router = express.Router()
 
@@ -28,3 +28,5 @@ router.route('/register').post((req,res) => {
            .then(() => res.json('Student Added!'))
            .catch(err => res.status(400).json('Error: '+err))
 })
+
+export default router
