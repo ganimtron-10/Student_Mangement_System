@@ -16,7 +16,7 @@ app.use(express.json());
 mongoose.connect(uri,{useNewUrlParser: true, useUnifiedTopology: true});
 
 const connection = mongoose.connection;
-connection.once('open', () => {console.log("Conneqcted to db.")})
+connection.once('open', () => {console.log("Connected to db.")})
 
 app.use('/student',studentRoute)
 app.use('/teacher',teacherRoute)
