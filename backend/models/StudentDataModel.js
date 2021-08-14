@@ -31,7 +31,7 @@ const studentSchema = new schema({
         type: Number,
         require: true
     },
-    class:{
+    classOfStuding:{
         type: String,
         require: true
     },
