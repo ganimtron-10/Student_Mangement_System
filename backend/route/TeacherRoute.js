@@ -66,16 +66,9 @@ router.route('/update/:id').post((req,res) => {
                                     classOfStuding:classOfStuding,
                                     divsion:divsion,
                                     branch:branch
-                                },
-                                (err,docs => {
-                                    if (err){
-                                        res.status(400).json('Error: '+err)
-                                    }
-                                    else{
-                                        console.log('Updated '+docs)
-                                    }
                                 })
-            )
+                 .then(() => res.json('Teacher Updated!'))
+                 .catch(err => res.status(400).json('Error: '+err))                
 })
 
 export default router
