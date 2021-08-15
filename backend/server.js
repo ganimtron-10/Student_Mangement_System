@@ -22,7 +22,7 @@ app.use(express.json());
 
 app.use('/student',studentRoute)
 app.use('/teacher',teacherRoute)
-app.use('*', (req,res) => res.status(404).json({error: 'Not Found'}))
+// app.use('*', (req,res) => res.status(404).json({error: 'Not Found'}))
 
 app.listen(port, () => {
 	console.log(`Server running on the port ${port}`)
