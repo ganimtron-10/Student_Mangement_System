@@ -29,7 +29,7 @@ router.route('/register').post((req,res) => {
            .catch(err => res.status(400).json('Error: '+err))
 })
 
-router.route('/:id').get((req,res) => {
+router.route('/get/:id').get((req,res) => {
     studentData.findById(req.params.id)
                .then(studentdata => res.json(studentdata))
                .catch(err => res.status(400).json('Error: '+err))
