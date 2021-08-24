@@ -9,7 +9,7 @@ router.route('/').get((req,res) => {
                .catch(err => res.status(400).json('Error: '+err))
 })
 
-router.route('/register').post((req,res) => {
+router.route('/add').post((req,res) => {
     const firstName = req.body.firstName
     const middleName = req.body.middleName
     const lastName = req.body.lastName
@@ -74,7 +74,18 @@ router.route('/login').post((req,res) => {
     const username = req.body.username
     const password = req.body.password
 
-    studentLogin.findOne({username:username})
+    studentLogin.findOne({username})
+                .then(studentdata => res.json(studentdata)) //check whether the password is same then swnd the data
+                .catch(err => res.status(400).json('Error: '+err))
+})
+
+router.route('/register').post((req,res) => {
+    const username = req.body.username
+    const password = req.body.password
+
+    const studentlogin = new studentLogin({username,password})
+
+    studentLogin.save()
                 .then(studentdata => res.json(studentdata))
                 .catch(err => res.status(400).json('Error: '+err))
 })
