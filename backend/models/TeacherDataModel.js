@@ -4,55 +4,55 @@ const schema = mongoose.Schema;
 const teacherDataSchema = new schema({
     firstName:{
         type: String,
-        require: true,
+        required: true,
     },
     middleName:{
         type: String,
-        require: true,
+        required: true,
     },
     lastName:{
         type: String,
-        require: true,
+        required: true,
     },
     dateOfBirth:{
         type: Date,
-        require: true,
+        required: true,
     },
     gender:{
         type:Boolean,
-        require: true,
+        required: true,
     },
     address:{
         type: String,
-        require: true,
+        required: true,
     },
     mobileNumber:{
         type: Number,
-        require: true,
+        required: true,
     },
     qulification:{
         type: String,
-        require: true,
+        required: true,
     },
     classOfTeaching:{
         type: String,
-        require: true,
+        required: true,
     },
     subject:{
         type: String,
-        require: true,
+        required: true,
     },
 });
 
 const teacherLoginSchema = new schema({
     username:{
         type:String,
-        require:true,
+        required:true,
         unique:true,
     },
     password:{
         type:String,
-        require:true,
+        required:true,
     },
 })
 

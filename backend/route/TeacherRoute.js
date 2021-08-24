@@ -9,7 +9,7 @@ router.route('/').get((req,res) => {
                .catch(err => res.status(400).json('Error: '+err))
 })
 
-router.route('/register').post((req,res) => {
+router.route('/add').post((req,res) => {
     const firstName = req.body.firstName
     const middleName = req.body.middleName
     const lastName = req.body.lastName
@@ -30,7 +30,7 @@ router.route('/register').post((req,res) => {
     
 })
 
-router.route('/:id').get((req,res) => {
+router.route('/get/:id').get((req,res) => {
     teacherData.findById(req.params.id)
                .then(teacherdata => res.json(teacherdata))
                .catch(err => res.status(400).json('Error: '+err))
@@ -76,9 +76,22 @@ router.route('/login').post((req,res) => {
     const password = req.body.password
 
     teacherLogin.findOne({
-        username:username
+        username
     })
-    .then(teacherdata => res.json(teacherData))
+    .then(teacherdata => res.json(teacherdata))
+    .catch(err => res.status(400).json('Error: '+err))
+})
+
+router.route('/register').post((req,res) => {
+    const username = req.body.username
+    const password = req.body.password
+
+    const teacherlogin = new teacherLogin({
+        username,password
+    })
+
+    teacherlogin.save()
+    .then(res.json("Teacher login sucessful!"))
     .catch(err => res.status(400).json('Error: '+err))
 })
 

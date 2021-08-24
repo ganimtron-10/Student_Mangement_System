@@ -83,7 +83,8 @@ router.route('/register').post((req,res) => {
     const username = req.body.username
     const password = req.body.password
 
-    const studentlogin = new studentLogin({username,password})
+    const studentlogin = new studentLogin({
+        username,password})
 
     studentlogin.save()
                 .then(res.json("Student Login Credantial Created Sucessfully!"))
