@@ -1,5 +1,5 @@
 import express from "express";
-import studentData from "../models/StudentDataModel.js";
+import {studentData,studentLogin} from "../models/StudentDataModel.js";
 
 const router = express.Router()
 
@@ -68,6 +68,13 @@ router.route('/update/:id').post((req,res) => {
                                     })
                .then(() => res.json('Student Updated!'))
                .catch(err => res.status(400).json('Error: '+err))
+})
+
+router.route('/login').post((req,res) => {
+    const username = req.body.username
+    const password = req.body.password
+
+    // const student = 
 })
 
 export default router
