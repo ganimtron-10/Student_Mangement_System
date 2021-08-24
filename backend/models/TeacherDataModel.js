@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const schema = mongoose.Schema;
-const teacherSchema = new schema({
+const teacherDataSchema = new schema({
     firstName:{
         type: String,
         require: true,
@@ -44,7 +44,20 @@ const teacherSchema = new schema({
     },
 });
 
-const teacherData = mongoose.model('teacherData',teacherSchema)
+const teacherLoginSchema = new schema({
+    username:{
+        type:String,
+        require:true,
+        unique:true,
+    },
+    password:{
+        type:String,
+        require:true,
+    },
+})
 
-export default teacherData
+const teacherData = mongoose.model('teacherData',teacherDataSchema)
 
+const teacherLogin = mongoose.model('teacherLogin',teacherLoginSchema)
+
+export {teacherData, teacherLogin}
