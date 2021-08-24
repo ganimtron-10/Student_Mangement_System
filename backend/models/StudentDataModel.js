@@ -5,55 +5,55 @@ const schema = mongoose.Schema;
 const studentDataSchema = new schema({
     firstName : {
         type: String,
-        require: true
+        required: true
     },
     middleName : {
         type: String,
-        require: true
+        required: true
     },
     lastName : {
         type: String,
-        require: true
+        required: true
     },
     dateOfBirth:{
         type: Date,
-        require: true
+        required: true
     },
     gender:{
         type: Boolean,
-        require: true
+        required: true
     },
     address:{
         type: String,
-        require: true
+        required: true
     },
     mobileNumber:{
         type: Number,
-        require: true
+        required: true
     },
     classOfStuding:{
         type: String,
-        require: true
+        required: true
     },
     divsion:{
         type: String,
-        require: true
+        required: true
     },
     branch:{
         type: String,
-        require: true
+        required: true
     }
 });
 
 const studentLoginSchema = new schema({
     username:{
         type: String,
-        require: true,
+        required: true,
         unique: true
     },
     password:{
         type: String,
-        require: true
+        required: true
     }
 })
 
