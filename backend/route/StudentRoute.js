@@ -74,7 +74,9 @@ router.route('/login').post((req,res) => {
     const username = req.body.username
     const password = req.body.password
 
-    // const student = 
+    studentLogin.findOne({username:username})
+                .then(studentdata => res.json(studentdata))
+                .catch(err => res.status(400).json('Error: '+err))
 })
 
 export default router
