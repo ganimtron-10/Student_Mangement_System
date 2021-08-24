@@ -85,8 +85,8 @@ router.route('/register').post((req,res) => {
 
     const studentlogin = new studentLogin({username,password})
 
-    studentLogin.save()
-                .then(studentdata => res.json(studentdata))
+    studentlogin.save()
+                .then(res.json("Student Login Credantial Created Sucessfully!"))
                 .catch(err => res.status(400).json('Error: '+err))
 })
 
