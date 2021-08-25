@@ -75,7 +75,15 @@ router.route('/login').post((req,res) => {
     const password = req.body.password
 
     studentLogin.findOne({username})
-                .then(studentdata => res.json(studentdata)) //check whether the password is same then swnd the data
+                .then((studentdata) => {
+                    if(studentdata != null)
+                    {
+                        res.json(studentdata)
+                    }
+                    else{
+                        res.json("Error: Data Not Found!")
+                    }
+                }) //check whether the password is same then swnd the data
                 .catch(err => res.status(400).json('Error: '+err))
 })
 
@@ -83,8 +91,7 @@ router.route('/register').post((req,res) => {
     const username = req.body.username
     const password = req.body.password
 
-    const studentlogin = new studentLogin({
-        username,password})
+    const studentlogin = new studentLogin({username,password})
 
     studentlogin.save()
                 .then(res.json("Student Login Credantial Created Sucessfully!"))

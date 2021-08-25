@@ -55,7 +55,7 @@ const studentLoginSchema = new schema({
         type: String,
         required: true
     }
-})
+});
 
 const studentData = mongoose.model('studentData', studentDataSchema)
 const studentLogin = mongoose.model('studentLogin', studentLoginSchema)
