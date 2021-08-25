@@ -75,10 +75,21 @@ router.route('/login').post((req,res) => {
     const username = req.body.username
     const password = req.body.password
 
+    console.log(username,password)
+
     teacherLogin.findOne({
         username
     })
-    .then(teacherdata => res.json(teacherdata))
+    .then((teacherdata) => {
+        
+        if(teacherdata != null)
+        {
+            res.json(teacherdata)
+        }
+        else{
+            res.json("Error: Data Not found")
+        }
+    } )
     .catch(err => res.status(400).json('Error: '+err))
 })
 
