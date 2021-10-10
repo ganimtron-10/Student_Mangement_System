@@ -67,7 +67,7 @@ router.route('/update/:id').post((req,res) => {
                                     branch:branch
                                     })
                .then(() => res.json('Student Updated!'))
-               .catch(err => res.status(400).json('Error: '+err))
+               .catch(err => res.status(400).json('Error: ' + err))
 })
 
 router.route('/login').post((req,res) => {
